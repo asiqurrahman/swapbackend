@@ -9,6 +9,12 @@ def getPost(request):
     serializer = PostSerializer(post, many=True)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def getSinglePost(request, pk):
+    post = Post.objects.get(id=pk)
+    serializer = PostSerializer(post, many=False)
+    return Response(serializer.data)
+
 @api_view(['Post'])
 def createPost(request):
     serializer = PostSerializer(data=request.data)
