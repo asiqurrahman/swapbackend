@@ -5,7 +5,7 @@ from .serializers import PostSerializer
 
 @api_view(['GET'])
 def getPost(request):
-    post = Post.objects.all()
+    post = Post.objects.all().order_by('-date_posted')
     serializer = PostSerializer(post, many=True)
     return Response(serializer.data)
 
