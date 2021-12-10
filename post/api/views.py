@@ -31,3 +31,4 @@ def updatePost(request, pk):
         serializer.save()
         return Response(serializer.data)
     return Response(serializer.errors)
+
