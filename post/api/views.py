@@ -15,6 +15,12 @@ def getSinglePost(request, pk):
     serializer = PostSerializer(post, many=False)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def getUserAllPost(request, pk):
+    post = Post.objects.filter(author=pk)
+    serializer = PostSerializer(post, many=True)
+    return Response(serializer.data)
+
 @api_view(['Post'])
 def createPost(request):
     serializer = PostSerializer(data=request.data)
