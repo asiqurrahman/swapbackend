@@ -18,7 +18,13 @@ def getSinglePost(request, pk):
 @api_view(['DELETE'])
 def deletePost(request, pk):
     post = Post.objects.get(id=pk)
-    post.delete()
+    delete = post.delete()
+    data = {}
+    if delete:
+        data["success"] = "deleted successfully"
+    else:
+        data["failure"] = "delete failed"
+    return Response(data=data)
 
 @api_view(['GET'])
 def getUserAllPost(request, pk):
