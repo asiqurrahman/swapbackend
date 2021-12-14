@@ -28,7 +28,7 @@ def deletePost(request, pk):
 
 @api_view(['GET'])
 def getUserAllPost(request, pk):
-    post = Post.objects.filter(author=pk)
+    post = Post.objects.filter(author=pk).order_by('-date_posted')
     serializer = PostSerializer(post, many=True)
     return Response(serializer.data)
 
