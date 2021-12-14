@@ -15,6 +15,11 @@ def getSinglePost(request, pk):
     serializer = PostSerializer(post, many=False)
     return Response(serializer.data)
 
+@api_view(['DELETE'])
+def deletePost(request, pk):
+    post = Post.objects.get(id=pk)
+    post.delete()
+
 @api_view(['GET'])
 def getUserAllPost(request, pk):
     post = Post.objects.filter(author=pk)

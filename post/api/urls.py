@@ -8,4 +8,5 @@ urlpatterns = [
     path('createpost/', views.createPost),
     path('updatepost/<str:pk>/', views.updatePost),
     path('post/user/<str:pk>/', views.getUserAllPost),
+    path('post/delete/<str:pk>/', views.deletePost),
 ]
