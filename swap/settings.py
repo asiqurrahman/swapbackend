@@ -1,6 +1,8 @@
 from pathlib import Path
 from datetime import timedelta
 import os
+import dj_database_url
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -16,7 +18,7 @@ SECRET_KEY = 'django-insecure-q4hb6rmg)nvpg3u%z18bc*)+_q_s8l!4llp$c(@n0t9*0af=_q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['asiqursswap.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['asiqursswap.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -121,6 +123,8 @@ DATABASES = {
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
