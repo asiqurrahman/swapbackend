@@ -1,7 +1,7 @@
 from pathlib import Path
 from datetime import timedelta
 import os
-
+import django_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -190,3 +190,5 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 CORS_ALLOW_ALL_ORIGINS = True
 
 # 7U+EMM2MqdBipwPoQ+XWsvTuv0C8pImNDziOoJwx
+
+django_heroku.settings(locals())
