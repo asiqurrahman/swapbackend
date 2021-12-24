@@ -2,6 +2,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from post.models import Post
 from .serializers import PostSerializer
+from django.db.models import Q # new
 
 @api_view(['GET'])
 def getPost(request):
@@ -48,4 +49,10 @@ def updatePost(request, pk):
         serializer.save()
         return Response(serializer.data)
     return Response(serializer.errors)
+
+@api_view(['GET'])
+def searchPost(request, pk):
+    post = Post.objects.filter(Q(trade__icontains=pk) | Q(wanted__icontains=pk))
+    serializer = PostSerializer(post, many=True)
+    return Response(serializer.data)
 
