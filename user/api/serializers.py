@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
         # Tuple of serialized model fields (see link [2])
-        fields = ("id", "email", "username", "password", "avatar", "lat", "lng", "city", "zipcode")
+        fields = ("id", "email", "username", "password", "avatar", "lat", "lng", "city", "zipcode", "original_location")
     
     def __init__(self, *args, **kwargs):
         kwargs['partial'] = True
