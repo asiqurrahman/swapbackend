@@ -39,6 +39,7 @@ class User(AbstractBaseUser):
     lng = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200, null=True)
     zipcode = models.CharField(max_length=200, null=True)
+    original_location = models.TextField(null=True)
     date_joined = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login = models.DateTimeField(verbose_name='last login', auto_now_add=True)
     is_admin = models.BooleanField(default=False)
