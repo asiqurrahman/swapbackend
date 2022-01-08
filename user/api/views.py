@@ -15,6 +15,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         # Add custom claims
         token['username'] = user.username,
         token['avatar'] = str(user.avatar)
+        token['lat'] = str(user.lat)
+
         # ...
 
         return token

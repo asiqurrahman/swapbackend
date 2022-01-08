@@ -192,3 +192,5 @@ CORS_ALLOW_ALL_ORIGINS = True
 # 7U+EMM2MqdBipwPoQ+XWsvTuv0C8pImNDziOoJwx
 
 django_heroku.settings(locals())
+
+
