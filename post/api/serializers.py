@@ -6,6 +6,7 @@ from user.api.serializers import UserSerializer
 class PostSerializer(serializers.ModelSerializer):
     author_avatar = serializers.ImageField(source='author.avatar')
     author_username = serializers.CharField(source='author.username')
+    
     class Meta:
         model = Post
         # Tuple of serialized model fields (see link [2])
