@@ -3,10 +3,7 @@ from django.db.models.deletion import CASCADE
 from django.db.models.fields.related import ForeignKey
 from user.models import User
 from django.utils import timezone
-from django.utils.timezone import utc
-
-
-
+from django.utils import timesince
 
 # Create your models here.
 
@@ -23,7 +20,7 @@ class Post(models.Model):
         return self.trade
 
     @property
-    def time_since_created(self):
-        return (timezone.now()-self.date_posted).total_seconds()
+    def timesince(self):
+        return timesince.timesince(self.date_posted)
 
 
