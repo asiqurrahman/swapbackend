@@ -5,6 +5,9 @@ from user.models import User
 from django.utils import timezone
 from django.utils.timezone import utc
 
+
+
+
 # Create your models here.
 
 class Post(models.Model):
@@ -18,4 +21,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.trade
+
+    @property
+    def time_since_created(self):
+        return (timezone.now()-self.date_posted).total_seconds()
+
 
